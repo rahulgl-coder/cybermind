@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-// import axios from '../axios/axios';
-import axios from 'axios'
+import axios from '../axios/axios';
+
 import toast from 'react-hot-toast'
 
 import { useModal } from '../context/Jobcontext';
@@ -26,12 +26,12 @@ function Form() {
     };
 
     try {
-      const response = await axios.post('http://localhost:5000/addjob', jobData);
+      const response = await axios.post('/addjob', jobData);
       const newJob = response.data.data;
 
       toast.success("Job added succesfully")
 
-       const res = await axios.get('http://localhost:5000/getjobs');
+       const res = await axios.get('/getjobs');
     setJobs(res.data.data);
      
       

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { User, MapPin, IndianRupee } from 'lucide-react';
-// import axios from '../axios/axios';
+import axios from '../axios/axios';
 
-import axios from 'axios'
+
 
 import { useModal } from '../context/Jobcontext';
 
@@ -19,7 +19,7 @@ function JobGrid() {
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/getjobs');
+        const res = await axios.get('/getjobs');
         setJobs(res.data.data)
         
       } catch (error) {
