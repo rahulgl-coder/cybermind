@@ -6,14 +6,13 @@ const route=require('./Routes/addJob')
 const cors = require('cors');
 
 app.use(express.json())
-app.use(cors());
-app.use(route)
+app.use(cors({
+  origin: 'https://cybermind-2-0m1r.onrender.com',  // your frontend URL
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+}));
 
-// app.use(cors({
-//   origin: 'http://localhost:5173', 
-//   methods: ['GET', 'POST'],        
-//   credentials: true                
-// }));
+app.use(route)
 
 
 
