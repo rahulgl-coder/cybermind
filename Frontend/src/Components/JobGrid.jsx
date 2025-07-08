@@ -10,7 +10,7 @@ function JobGrid() {
 
   const {jobs,setJobs,searchQuery,locationFilter,jobTypeFilter,salaryFilter}=useModal()
  
-
+  const [isLoading, setIsLoading] = useState(true);
 
 
 
@@ -18,12 +18,15 @@ function JobGrid() {
 
   useEffect(() => {
     const fetchJobs = async () => {
+       setIsLoading(true);
       try {
         const res = await axios.get('/getjobs');
         setJobs(res.data.data)
         
       } catch (error) {
         console.error('Error fetching jobs:', error);
+      }finally {
+        setIsLoading(false);
       }
     };
 
