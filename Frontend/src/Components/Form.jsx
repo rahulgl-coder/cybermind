@@ -27,7 +27,7 @@ function Form() {
 
     try {
       const response = await axios.post('/addjob', jobData);
-      const newJob = response.data.data;
+     
 
       toast.success("Job added succesfully")
 
